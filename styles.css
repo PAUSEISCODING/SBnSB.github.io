@@ -145,6 +145,59 @@ h1 {
   margin: 0;
 }
 
+/* PLANE ANIMATION OVERLAY */
+.plane-overlay.hidden {
+  display: none;
+}
+
+.plane-overlay {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+
+.plane-overlay.active {
+  opacity: 1;
+}
+
+.city {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.city.left {
+  position: absolute;
+  left: 20px;
+}
+
+.city.right {
+  position: absolute;
+  right: 20px;
+}
+
+#plane {
+  font-size: 40px;
+  transform: translateX(-10%);
+}
+
+@keyframes flyPlane {
+  from {
+    transform: translateX(-10%);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (max-width: 768px) {
   .burger {
     display: flex;
