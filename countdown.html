@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>❤️ Callum & Jamie</title>
+  <title>Countdown ❤️ Callum & Jamie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="styles.css">
@@ -13,18 +13,21 @@
   <nav class="navbar">
     <div class="nav-title">❤️ Callum & Jamie</div>
 
-    <div class="burger" id="burger">
+    <button class="burger" id="burger" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
+  </nav>
 
-    <ul class="nav-links" id="navLinks">
+  <!-- FULLSCREEN MENU -->
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="countdown.html">Countdown</a></li>
       <li><a href="memories.html">Memories</a></li>
     </ul>
-  </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
   <main class="page">
@@ -50,7 +53,7 @@
     <span class="city right">Middlesbrough ❤️</span>
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- COUNTDOWN + PLANE SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
@@ -58,6 +61,7 @@
          CONFIG
          ========================= */
 
+      // ✅ REAL DATE (UK time 12:30 BST = 11:30 UTC)
       const targetDate = new Date("2026-04-17T11:30:00Z");
 
       const TOTAL_FLIGHT_TIME = 20 * 60 * 1000; // 20 minutes
@@ -87,44 +91,33 @@
           `${seconds.toString().padStart(2, "0")}`;
 
         /* =========================
-           ✈️ PLANE FLIGHT (20 MIN)
+           ✈️ PLANE FLIGHT (FINAL 20 MIN)
            ========================= */
 
         if (difference <= TOTAL_FLIGHT_TIME) {
-
           if (!flightStarted) {
             flightStarted = true;
             planeOverlay.classList.remove("hidden");
             planeOverlay.style.opacity = "1";
           }
 
-          // progress from 0 → 1 over 20 minutes
           const elapsed = TOTAL_FLIGHT_TIME - difference;
           const progress = Math.min(elapsed / TOTAL_FLIGHT_TIME, 1);
 
-          // Move plane across viewport
           const travelWidth = window.innerWidth + 200;
           const x = -100 + travelWidth * progress;
 
-          // ✅ RELIABLE movement
           plane.style.transform = `translateX(${x}px)`;
         }
       }
 
       setInterval(updateCountdown, 1000);
       updateCountdown();
-
-      /* BURGER MENU */
-      const burger = document.getElementById("burger");
-      const navLinks = document.getElementById("navLinks");
-
-      burger.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-        burger.classList.toggle("open");
-      });
-
     });
   </script>
+
+  <!-- MENU SCRIPT -->
+  <script src="nav.js"></script>
 
 </body>
 </html>

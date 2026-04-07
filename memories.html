@@ -13,18 +13,21 @@
   <nav class="navbar">
     <div class="nav-title">❤️ Callum & Jamie</div>
 
-    <div class="burger" id="burger">
+    <button class="burger" id="burger" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
+  </nav>
 
-    <ul class="nav-links" id="navLinks">
+  <!-- FULLSCREEN MENU -->
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="countdown.html">Countdown</a></li>
       <li><a href="memories.html">Memories</a></li>
     </ul>
-  </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
   <main class="page">
@@ -38,7 +41,7 @@
       <!-- MEMORY STICKERS -->
 
       <div class="memory-sticker">
-        <img src="assets/31124.jpeg" alt="Memory 1">
+        <img src="assets/31124.jpeg" alt="Our first video call">
         <div class="sticker-text">
           <span class="date">3rd November 2024</span>
           <p>Our first video call 💕</p>
@@ -46,7 +49,7 @@
       </div>
 
       <div class="memory-sticker">
-        <img src="assets/060426.png" alt="Memory 2">
+        <img src="assets/060426.png" alt="Late night chats">
         <div class="sticker-text">
           <span class="date">6th April 2026</span>
           <p>Late night chats that turned into mornings</p>
@@ -54,26 +57,20 @@
       </div>
 
       <div class="memory-sticker">
-        <img src="assets/070426.jpg" alt="Memory 3">
+        <img src="assets/070426.jpg" alt="Counting down together">
         <div class="sticker-text">
           <span class="date">7th April 2026</span>
           <p>Counting down together 😃</p>
         </div>
       </div>
 
+      <!-- ADD MORE MEMORY-STICKER BLOCKS BELOW -->
+
     </section>
   </main>
 
-  <!-- BURGER SCRIPT -->
-  <script>
-    const burger = document.getElementById("burger");
-    const navLinks = document.getElementById("navLinks");
-
-    burger.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      burger.classList.toggle("open");
-    });
-  </script>
+  <!-- MENU SCRIPT -->
+  <script src="nav.js"></script>
 
 </body>
 </html>

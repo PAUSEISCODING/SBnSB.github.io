@@ -13,50 +13,50 @@
   <nav class="navbar">
     <div class="nav-title">❤️ Callum & Jamie</div>
 
-    <!-- BURGER ICON -->
-    <div class="burger" id="burger">
+    <!-- BURGER -->
+    <button class="burger" id="burger" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
+  </nav>
 
-    <!-- NAV LINKS -->
-    <ul class="nav-links" id="navLinks">
+  <!-- FULLSCREEN MENU -->
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="countdown.html">Countdown</a></li>
       <li><a href="memories.html">Memories</a></li>
     </ul>
-  </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
-  <main class="page">
+  <main class="page home-page">
     <div class="container home-container">
 
       <h1>💖 Callum & Jamie</h1>
+
       <p class="home-intro">
         Our little corner of the internet.<br>
         A countdown, some memories, and us.
       </p>
 
-      <!-- ABOUT SECTIONS -->
       <div class="about-us">
 
-        <!-- CALLUM -->
         <div class="about-card callum">
           <h2>❤️ Callum</h2>
           <p>
-            17 | 25/07/2008.<br>
-            I like walks, rock music and stink bug!
+            17 | 25/07/2008<br>
+            I like walks, rock music and stink bug!<br>
             I'd do anything for this girl!
           </p>
         </div>
 
-        <!-- JAMIE -->
         <div class="about-card jamie">
           <h2>💙 Jamie</h2>
           <p>
             16 | 30/06/2009<br>
-            I like the beach, sunsets and silly bean!
+            I like the beach, sunsets and silly bean!<br>
             He’s my everything!
           </p>
         </div>
@@ -70,16 +70,7 @@
     </div>
   </main>
 
-  <!-- BURGER MENU SCRIPT -->
-  <script>
-    const burger = document.getElementById("burger");
-    const navLinks = document.getElementById("navLinks");
-
-    burger.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      burger.classList.toggle("open");
-    });
-  </script>
-
+  <script src="nav.js"></script>
 </body>
 </html>
+``
