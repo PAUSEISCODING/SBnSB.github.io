@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown to Jamie ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV BAR -->
+  <nav class="navbar">
+    <div class="nav-title">❤️ Jamie & Me</div>
+
+    <!-- BURGER ICON -->
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- NAV LINKS -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="countdown.html">Countdown</a></li>
+      <li><a href="memories.html">Memories</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="page">
+    <div class="container">
+      <h1>Until We See Each Other ❤️</h1>
+
+      <div class="countdown" id="countdown">
+        Loading…
+      </div>
+
+      <div class="labels">
+        Days : Hours : Minutes : Seconds
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /* COUNTDOWN */
+    const targetDate = new Date("2026-04-17T11:30:00Z");
+
+    function updateCountdown() {
+      const now = new Date();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        document.getElementById("countdown").textContent = "WE'RE TOGETHER ❤️";
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      document.getElementById("countdown").textContent =
+        `${days} : ${hours.toString().padStart(2, '0')} : ` +
+        `${minutes.toString().padStart(2, '0')} : ` +
+        `${seconds.toString().padStart(2, '0')}`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    /* BURGER MENU */
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      burger.classList.toggle("open");
+    });
+  </script>
+
+</body>
+</html>
