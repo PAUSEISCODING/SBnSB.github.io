@@ -1,2 +1,0 @@
-# SBnSB.github.io
-SBnSB
