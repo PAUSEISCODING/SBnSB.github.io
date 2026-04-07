@@ -281,3 +281,77 @@ h1 {
     transform: rotate(0deg) !important;
   }
 }
+
+/* HOME PAGE ABOUT SECTIONS */
+
+.home-container {
+  max-width: 900px;
+}
+
+.home-intro {
+  margin-bottom: 40px;
+  opacity: 0.85;
+}
+
+.about-us {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+/* BASE CARD STYLE */
+.about-card {
+  flex: 1;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+
+/* CALLUM (PINK) */
+.about-card.callum {
+  background: linear-gradient(135deg, #ff9acb, #ff6fae);
+  color: #2b0f1c;
+}
+
+/* JAMIE (BLUE) */
+.about-card.jamie {
+  background: linear-gradient(135deg, #8fd3f4, #5baeea);
+  color: #0e2535;
+}
+
+.about-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* LINK */
+.home-link {
+  margin-top: 30px;
+}
+
+.home-link a {
+  color: white;
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.home-link a:hover {
+  opacity: 1;
+}
+
+/* MOBILE STACK */
+@media (max-width: 700px) {
+  .about-us {
+    flex-direction: column;
+  }
+
+  .about-card {
+    text-align: center;
+  }
+}
