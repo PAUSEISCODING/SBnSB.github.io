@@ -293,6 +293,108 @@ h1 {
   margin-bottom: 4px;
 }
 
+.story-section {
+  margin-top: 50px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+}
+
+.story-section h2 {
+  margin-bottom: 15px;
+}
+
+.story-text {
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.together-section {
+  margin-top: 40px;
+}
+
+.together-timer {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.love-section {
+  margin-top: 50px;
+}
+
+.love-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.love-list li {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.hearts span {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 8s infinite ease-in;
+  opacity: 0.5;
+}
+
+.hearts span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+.hearts span:nth-child(2) {
+  left: 50%;
+  animation-delay: 2s;
+}
+.hearts span:nth-child(3) {
+  left: 80%;
+  animation-delay: 4s;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.6; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 3000;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+}
+
+.music-toggle.playing {
+  opacity: 0.9;
+}
+
 /* scattered feel */
 /* SCATTER EFFECT (only when NOT hovering) */
 .memory-sticker:not(:hover):nth-child(2) {
@@ -327,6 +429,89 @@ h1 {
 
 .home-link a:hover {
   opacity: 1;
+}
+
+.secret-note {
+  margin-top: 50px;
+}
+
+.secret-note button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+}
+
+.note-text {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 16px;
+}
+
+/* ======================
+   MOOD SELECTOR
+   ====================== */
+
+.mood-section {
+  margin-top: 50px;
+}
+
+#currentMood {
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+/* Button container */
+.moods {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Mood buttons */
+.moods button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+
+  color: white;
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Hover */
+.moods button:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Click / active */
+.moods button:active {
+  transform: scale(1.05);
+}
+
+/* Selected mood (JS will toggle this class) */
+.moods button.selected {
+  background: linear-gradient(135deg, #ff9acb, #ff6fae);
+  box-shadow: 0 0 20px rgba(255, 154, 203, 0.7);
 }
 
 /* ======================

@@ -40,3 +40,9 @@ if (burger && overlay) {
     }
   });
 }
+
+document.querySelectorAll(".moods button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    localStorage.setItem("mood", btn.textContent);
+  });
+});

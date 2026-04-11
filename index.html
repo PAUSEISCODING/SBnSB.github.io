@@ -9,6 +9,15 @@
 </head>
 <body>
 
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+    🎵
+  </button>
+
   <!-- NAV BAR -->
   <nav class="navbar">
     <div class="nav-title">❤️ Callum & Jamie</div>
@@ -63,14 +72,122 @@
 
       </div>
 
+      <section class="story-section">
+        <h2>💫 Our Story</h2>
+        <p class="story-text">
+          We met like most stories do - unexpectedly.<br>
+          From small conversations to late nights, we slowly became
+          each other’s safe place.<br><br>
+          We tried it once, then again. This is our last shot at this and we WILL make it work.
+        </p>
+      </section>
       <p class="home-link">
         <a href="countdown.html">Go to the countdown →</a>
       </p>
 
+
+      <section class="together-section">
+        <h2>⏳ Time Together</h2>
+        <div id="togetherTime" class="together-timer">Loading...</div>
+      </section>
+
+      <section class="love-section">
+        <h2>💖 Things We Love</h2>
+        <ul class="love-list">
+          <li>Late night talks</li>
+          <li>Watching Movies</li>
+          <li>TVD 🧛📗</li>
+          <li>Making memories</li>
+          <li>Each other 😌</li>
+        </ul>
+      </section>
+
+      <section class="secret-note">
+        <button id="noteBtn">💌 Read a note</button>
+        <div class="note-text" id="noteText">
+          Jamie, if you're reading this: thank you for choosing us.
+          I'm proud of you and I love you ❤️
+          <br></br>
+          I also cant see what mood you select. its juts a little feature
+          for you!
+          <br></br>
+          Mwah x
+        </div>
+      </section>
+
+      <section class="mood-section">
+        <h2>😊 Today’s Mood</h2>
+        <div class="moods">
+          <button>🥰</button>
+          <button>😌</button>
+          <button>☹️</button>
+          <button>😴</button>
+          <button>💔</button>
+        </div>
+      </section>
+
     </div>
+    
   </main>
 
   <script src="nav.js"></script>
+<script>
+  const startDate = new Date("2026-03-21T00:00:00"); // CHANGE THIS 💖
+
+  function updateTogetherTime() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("togetherTime").textContent =
+      `${days} days, ${hours} hours, ${minutes} minutes 💞`;
+  }
+
+  updateTogetherTime();
+  setInterval(updateTogetherTime, 60000);
+</script>
+
+<script>
+  const music = document.getElementById("bgMusic");
+  const toggle = document.getElementById("musicToggle");
+
+  let isPlaying = false;
+
+  toggle.addEventListener("click", () => {
+    if (!isPlaying) {
+      music.volume = 0.2; // soft volume
+      music.play();
+      toggle.textContent = "⏸️";
+      toggle.classList.add("playing");
+      isPlaying = true;
+    } else {
+      music.pause();
+      toggle.textContent = "🎵";
+      toggle.classList.remove("playing");
+      isPlaying = false;
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("noteBtn").addEventListener("click", () => {
+    document.getElementById("noteText").style.display = "block";
+  });
+</script>
+
+  <div class="hearts">
+    <span>❤️</span>
+    <span>💖</span>
+    <span>💙</span>
+  </div>
+
+
+  <footer class="site-footer">
+    Made with ❤️ by Callum for Jamie
+  </footer>
+
 </body>
 </html>
-``
