@@ -45,13 +45,13 @@
 
   <!-- ✈️ PLANE OVERLAY -->
   <div id="planeOverlay" class="plane-overlay hidden">
-    <span class="city left">Blackpool ✈️</span>
+    <span class="city left">Blackpool 👨</span>
 
     <svg width="100%" height="120">
       <text id="plane" y="70" font-size="40">✈️</text>
     </svg>
 
-    <span class="city right">Middlesbrough ❤️</span>
+    <span class="city right">Middlesbrough 👩</span>
   </div>
 
   <!-- COUNTDOWN + PLANE SCRIPT -->
@@ -65,7 +65,7 @@
       // ✅ REAL DATE (UK time 11:30 BST = 10:30 UTC)
       const targetDate = new Date("2026-04-17T10:30:00Z");
 
-      const TOTAL_FLIGHT_TIME = 20 * 60 * 1000; // 20 minutes
+      const TOTAL_FLIGHT_TIME = 25 * 60 * 1000; // 20 minutes
       let flightStarted = false;
 
       const countdownEl = document.getElementById("countdown");
@@ -77,7 +77,7 @@
         const difference = targetDate - now;
 
         if (difference <= 0) {
-          countdownEl.textContent = "WE'RE TOGETHER ❤️";
+          countdownEl.textContent = "I'm Nearby ❤️";
           return;
         }
 
@@ -92,7 +92,7 @@
           `${seconds.toString().padStart(2, "0")}`;
 
         /* =========================
-           ✈️ PLANE FLIGHT (FINAL 20 MIN)
+           ✈️ PLANE FLIGHT (FINAL MINS)
            ========================= */
 
         if (difference <= TOTAL_FLIGHT_TIME) {
