@@ -5,15 +5,14 @@
   <meta charset="UTF-8">
   <title>Countdown ❤️ Callum & Jamie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <!-- NAV BAR -->
   <nav class="navbar">
     <div class="nav-title">❤️ Callum & Jamie</div>
-
     <button class="burger" id="burger" aria-label="Menu">
       <span></span>
       <span></span>
@@ -34,43 +33,20 @@
   <main class="page">
     <div class="container">
       <h1>Until We See Each Other ❤️</h1>
-
       <div class="countdown" id="countdown">Loading…</div>
-
       <div class="labels">
         Days : Hours : Minutes : Seconds
       </div>
     </div>
   </main>
 
-  <!-- ✈️ PLANE OVERLAY -->
-  <div id="planeOverlay" class="plane-overlay hidden">
-    <span class="city left">Blackpool 👨</span>
-
-    <svg width="100%" height="120">
-      <text id="plane" y="70" font-size="40">✈️</text>
-    </svg>
-
-    <span class="city right">Middlesbrough 👩</span>
-  </div>
-
-  <!-- COUNTDOWN + PLANE SCRIPT -->
+  <!-- COUNTDOWN SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
-      /* =========================
-         CONFIG
-         ========================= */
-
-      // ✅ REAL DATE (UK time 11:30 BST = 10:30 UTC)
-      const targetDate = new Date("2026-04-17T10:30:00Z");
-
-      const TOTAL_FLIGHT_TIME = 25 * 60 * 1000; // 20 minutes
-      let flightStarted = false;
-
+      // ✅ Target date (UK time: 16:30 BST = 15:30 UTC)
+      const targetDate = new Date("2026-05-01T15:30:00Z");
       const countdownEl = document.getElementById("countdown");
-      const planeOverlay = document.getElementById("planeOverlay");
-      const plane = document.getElementById("plane");
 
       function updateCountdown() {
         const now = Date.now();
@@ -90,26 +66,6 @@
           `${days} : ${hours.toString().padStart(2, "0")} : ` +
           `${minutes.toString().padStart(2, "0")} : ` +
           `${seconds.toString().padStart(2, "0")}`;
-
-        /* =========================
-           ✈️ PLANE FLIGHT (FINAL MINS)
-           ========================= */
-
-        if (difference <= TOTAL_FLIGHT_TIME) {
-          if (!flightStarted) {
-            flightStarted = true;
-            planeOverlay.classList.remove("hidden");
-            planeOverlay.style.opacity = "1";
-          }
-
-          const elapsed = TOTAL_FLIGHT_TIME - difference;
-          const progress = Math.min(elapsed / TOTAL_FLIGHT_TIME, 1);
-
-          const travelWidth = window.innerWidth + 200;
-          const x = -100 + travelWidth * progress;
-
-          plane.style.transform = `translateX(${x}px)`;
-        }
       }
 
       setInterval(updateCountdown, 1000);
