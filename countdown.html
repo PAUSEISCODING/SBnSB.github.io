@@ -44,8 +44,8 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
-      // ✅ Target date (UK time: 16:30 BST = 15:30 UTC)
-      const targetDate = new Date("2026-05-01T15:30:00Z");
+      // ✅ Target date in Blackpool local time: 22/05/2026 18:00 BST
+      const targetDate = new Date("2026-05-22T18:00:00+01:00");
       const countdownEl = document.getElementById("countdown");
 
       function updateCountdown() {
@@ -53,7 +53,7 @@
         const difference = targetDate - now;
 
         if (difference <= 0) {
-          countdownEl.textContent = "I'm Home :( ❤️";
+          countdownEl.textContent = "You're Here ❤️";
           return;
         }
 
